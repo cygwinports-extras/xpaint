@@ -1,0 +1,7 @@
+category: Graphics X11
+requires: libgcc1 libjpeg7 libpng12 libtiff5 libX11_6 libXaw3d7 libXext6 libXmu6 libXpm4 libXt6
+sdesc: "X paint program"
+ldesc: "Xpaint is a color image editing tool which features most 
+standard paint program options. It allows for the editing of multiple 
+images simultaneously and supports various formats, including PPM, XBM, 
+TIFF, etc."

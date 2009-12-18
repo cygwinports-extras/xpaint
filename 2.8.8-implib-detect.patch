@@ -1,0 +1,35 @@
+--- origsrc/xpaint-2.8.8/configure	2009-10-16 06:08:38.000000000 -0500
++++ src/xpaint-2.8.8/configure	2009-12-17 21:26:37.947306200 -0600
+@@ -11,8 +11,8 @@ else
+ fi
+ 
+ if test "$WIDGETS" = "" ; then
+-   if [ -r /usr/lib/libXaw3d.so ] || [ -r /usr/X11R6/lib/libXaw3d.so ] ; then
+-      echo "libXaw3d.so   is installed"
++   if [ -r /usr/lib/libXaw3d.dll.a ] || [ -r /usr/X11R6/lib/libXaw3d.dll.a ] ; then
++      echo "libXaw3d.dll.a   is installed"
+       if [ -d /usr/include/X11/Xaw3d ] ; then
+          if [ -r /usr/include/X11/Xaw3d/Xaw3dP.h ] ; then
+ 	    echo "Found Xaw3dg library (extended version of Xaw3d)"
+@@ -29,8 +29,8 @@ if test "$WIDGETS" = "" ; then
+       fi
+    fi
+    if test "$WIDGETS" = "" &&
+-      ( [ -r /usr/lib/libneXtaw.so ] || [ -r /usr/X11R6/lib/libneXtaw.so ] ) ; then
+-      echo "libneXtaw.so   is installed"      
++      ( [ -r /usr/lib/libneXtaw.dll.a ] || [ -r /usr/X11R6/lib/libneXtaw.dll.a ] ) ; then
++      echo "libneXtaw.dll.a   is installed"      
+       if [ -d /usr/include/X11/neXtaw ] ; then
+          echo "Found neXtaw library"
+          echo ""
+@@ -41,8 +41,8 @@ if test "$WIDGETS" = "" ; then
+       fi
+    fi   
+    if test "$WIDGETS" = "" &&
+-      ( [ -r /usr/lib/libXaw95.so ] || [ -r /usr/X11R6/lib/libXaw95.so ] ) ; then
+-      echo "libXaw95.so   is installed"      
++      ( [ -r /usr/lib/libXaw95.dll.a ] || [ -r /usr/X11R6/lib/libXaw95.dll.a ] ) ; then
++      echo "libXaw95.dll.a   is installed"      
+       if [ -d /usr/include/X11/Xaw95 ] ; then
+          echo "Found Xaw95 library"
+          echo ""

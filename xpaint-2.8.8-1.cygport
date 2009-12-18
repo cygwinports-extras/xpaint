@@ -1,0 +1,23 @@
+DESCRIPTION="X paint program"
+HOMEPAGE="http://sf-xpaint.sourceforge.net/"
+SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
+
+PATCH_URI="2.8.8-implib-detect.patch
+           2.8.8-no-undefined.patch"
+
+DIFF_EXCLUDES="Local.xawdefs *.ps"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	./configure
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	doicon icons/xpaint.svg
+	make_desktop_entry xpaint XPaint xpaint "Graphics;2DGraphics;RasterGraphics"
+}

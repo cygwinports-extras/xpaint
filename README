@@ -1,0 +1,57 @@
+xpaint
+------------------------------------------
+Xpaint is a color image editing tool which features most standard paint 
+program options. It allows for the editing of multiple images 
+simultaneously and supports various formats, including PPM, XBM, TIFF, 
+etc.
+
+Runtime requirements:
+  cygwin-1.7.0-67
+  libgcc1-4.3.4-3
+  libjpeg7-7-10
+  libpng12-1.2.35-10
+  libtiff5-3.8.2-11
+  libX11_6-1.3.2-2
+  libXaw3d7-1.5D-8
+  libXext6-1.1.1-1
+  libXmu6-1.0.5-1
+  libXpm4-3.5.8-1
+  libXt6-1.0.7-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  binutils-2.19.51-1
+  cygport-0.9.10-1
+  gcc4-core-4.3.4-1
+  imake-1.0.2-2
+  make-3.81-2
+
+Canonical website:
+  http://sf-xpaint.sourceforge.net/
+
+Canonical download:
+  http://sourceforge.net/projects/sf-xpaint/files/
+
+-------------------------------------------
+
+Build instructions:
+  unpack xpaint-2.8.8-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./xpaint-2.8.8-X.cygport all
+
+This will create:
+  /usr/src/xpaint-2.8.8-X-src.tar.bz2
+  /usr/src/xpaint-2.8.8-X.tar.bz2
+
+-------------------------------------------
+
+Port Notes:
+
+----- version 2.8.8-1 -----
+Initial release for Cygwin 1.7.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/
