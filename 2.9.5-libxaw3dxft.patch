@@ -1,0 +1,31 @@
+--- origsrc/xpaint-2.9.5/configure	2010-08-05 14:45:31.000000000 -0500
++++ src/xpaint-2.9.5/configure	2010-09-12 23:47:51.471560000 -0500
+@@ -92,10 +92,10 @@ if test "$WIDGETS" = "xaw3dxft.a" ; then
+    ln -sf `pwd`/xaw3dxft xaw_incdir
+    echo "XAWLIB_DEFINES = -DXAW3D -DXAW3DG -DXAW3DXFT"   
+    echo "XAWLIB_DEFINES = -DXAW3D -DXAW3DG -DXAW3DXFT" > Local.xawdefs
+-   echo "SYS_LIBRARIES = xaw3dxft/libXaw3dxft.a -lXt -L."
+-   echo "SYS_LIBRARIES = xaw3dxft/libXaw3dxft.a -lXt -L." >> Local.xawdefs
++   echo "SYS_LIBRARIES = xaw3dxft/libXaw3dxft.a -lXft -lfontconfig -lXt -lXmu -lXext -lX11 -L."
++   echo "SYS_LIBRARIES = xaw3dxft/libXaw3dxft.a -lXft -lfontconfig -lXt -lXmu -lXext -lX11 -L." >> Local.xawdefs
+    echo ""
+-   cd xaw3dxft ; xmkmf ; make Xaw3dP.h ; cd .. ;
++   cd xaw3dxft ; xmkmf -DDoNormalLib=YES -DDoSharedLib=NO ; make ; cd .. ;
+    xmkmf -a
+    exit
+ fi
+--- origsrc/xpaint-2.9.5/xaw3dxft/Imakefile	2010-03-12 13:07:59.000000000 -0600
++++ src/xpaint-2.9.5/xaw3dxft/Imakefile	2010-09-08 18:36:16.662695900 -0500
+@@ -14,8 +14,12 @@ XCOMM For grayed stipple shadows, define
+ XCOMM For scrollbars with arrows, define ARROW_SCROLLBARS:
+ #define ARROW_SCROLLBARS
+ 
++#ifndef DoNormalLib
+ #define DoNormalLib NormalLibXaw
++#endif
++#ifndef DoSharedLib
+ #define DoSharedLib SharedLibXaw
++#endif
+ #define DoDebugLib DebugLibXaw 
+ #define DoProfileLib ProfileLibXaw 
+ #define HasSharedData YES

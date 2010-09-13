@@ -2,21 +2,24 @@ DESCRIPTION="X paint program"
 HOMEPAGE="http://sf-xpaint.sourceforge.net/"
 SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
 
-PATCH_URI="2.8.8-implib-detect.patch
-           2.8.8-no-undefined.patch"
+PATCH_URI="
+	mirror://sourceforge/sf-xpaint/${P}-tga-fixes.patch
+	2.9.5-libxaw3dxft.patch
+	2.9.5-no-error.h.patch
+"
 
 DIFF_EXCLUDES="Local.xawdefs *.ps"
 
 src_compile() {
 	lndirs
 	cd ${B}
-	./configure
+	./configure xaw3dxft.a
 	cygmake
 }
 
 src_install() {
 	cd ${B}
-	cyginstall
+	cyginstall -j1
 
 	doicon icons/xpaint.svg
 	make_desktop_entry xpaint XPaint xpaint "Graphics;2DGraphics;RasterGraphics"
