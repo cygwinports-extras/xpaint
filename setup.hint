@@ -1,5 +1,5 @@
 category: Graphics
-requires: libfontconfig1 libgcc1 libjpeg8 libopenjpeg2 libpgf1 libpng14 libtiff5 libX11_6 libXext6 libXft2 libXmu6 libXpm4 libXt6
+requires: libfontconfig1 libgcc1 libjpeg8 libopenjpeg2 libpgf1 libpng14 libstdc++6 libtiff5 libX11_6 libXext6 libXft2 libXmu6 libXpm4 libXt6
 sdesc: "X paint program"
 ldesc: "Xpaint is a color image editing tool which features most 
 standard paint program options. It allows for the editing of multiple 

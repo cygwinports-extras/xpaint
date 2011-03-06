@@ -3,12 +3,11 @@ HOMEPAGE="http://sf-xpaint.sourceforge.net/"
 SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
 
 PATCH_URI="
-	mirror://sourceforge/sf-xpaint/${P}-tga-fixes.patch
-	2.9.5-libxaw3dxft.patch
+	2.9.8.2-libxaw3dxft.patch
 	2.9.5-no-error.h.patch
 "
 
-DIFF_EXCLUDES="Local.xawdefs *.ps"
+DIFF_EXCLUDES="Local.*defs *.ps"
 
 src_compile() {
 	lndirs

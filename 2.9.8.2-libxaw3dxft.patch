@@ -1,0 +1,31 @@
+--- origsrc/xpaint-2.9.8.2/configure	2010-11-07 07:40:41.000000000 -0600
++++ src/xpaint-2.9.8.2/configure	2011-03-06 13:51:05.554881800 -0600
+@@ -92,10 +92,10 @@
+    ln -sf ./Xaw3dxft xaw_incdir
+    echo "XAWLIB_DEFINES = -DXAW3D -DXAW3DG -DXAW3DXFT"   
+    echo "XAWLIB_DEFINES = -DXAW3D -DXAW3DG -DXAW3DXFT" > Local.xawdefs
+-   echo "SYS_LIBRARIES = Xaw3dxft/libXaw3dxft.a -lXt -L."
+-   echo "SYS_LIBRARIES = Xaw3dxft/libXaw3dxft.a -lXt -L." >> Local.xawdefs
++   echo "SYS_LIBRARIES = Xaw3dxft/libXaw3dxft.a -lXft -lfontconfig -lXt -lXmu -lXext -lX11 -L."
++   echo "SYS_LIBRARIES = Xaw3dxft/libXaw3dxft.a -lXft -lfontconfig -lXt -lXmu -lXext -lX11 -L." >> Local.xawdefs
+    echo ""
+-   cd Xaw3dxft ; xmkmf ; make Xaw3dP.h ; cd .. ;
++   cd Xaw3dxft ; xmkmf -DDoNormalLib=YES -DDoSharedLib=NO ; make ; cd .. ;
+    xmkmf -a
+    exit
+ fi
+--- origsrc/xpaint-2.9.8.2/Xaw3dxft/Imakefile	2010-11-07 15:37:06.000000000 -0600
++++ src/xpaint-2.9.8.2/Xaw3dxft/Imakefile	2011-03-06 13:51:48.111756000 -0600
+@@ -14,8 +14,12 @@
+ XCOMM For scrollbars with arrows, define ARROW_SCROLLBARS:
+ #define ARROW_SCROLLBARS
+ 
++#ifndef DoNormalLib
+ #define DoNormalLib NormalLibXaw
++#endif
++#ifndef DoSharedLib
+ #define DoSharedLib SharedLibXaw
++#endif
+ #define DoDebugLib DebugLibXaw 
+ #define DoProfileLib ProfileLibXaw 
+ #define HasSharedData YES
