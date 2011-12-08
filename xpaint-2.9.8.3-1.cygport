@@ -5,6 +5,7 @@ SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
 PATCH_URI="
 	2.9.8.2-libxaw3dxft.patch
 	2.9.5-no-error.h.patch
+	2.9.8.3-Xos.h.patch
 "
 
 DIFF_EXCLUDES="Local.*defs *.ps"
@@ -13,7 +14,7 @@ src_compile() {
 	lndirs
 	cd ${B}
 	./configure xaw3dxft.a
-	cygmake
+	cygmake -j1
 }
 
 src_install() {
