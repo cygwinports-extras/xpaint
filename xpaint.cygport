@@ -1,8 +1,15 @@
-DESCRIPTION="X paint program"
+NAME="xpaint"
+VERSION=2.9.9
+RELEASE=2
+CATEGORY="Graphics"
+SUMMARY="X paint program"
+DESCRIPTION="Xpaint is a color image editing tool which features most standard
+paint program options. It allows for the editing of multiple images simultaneously
+and supports various formats, including PPM, XBM, TIFF, etc."
 HOMEPAGE="http://sf-xpaint.sourceforge.net/"
 SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
 
-#DIFF_EXCLUDES="Local.*defs *.ps"
+REQUIRES="ghostscript"
 
 src_compile() {
 	cd ${S}
