@@ -8,6 +8,10 @@ paint program options. It allows for the editing of multiple images simultaneous
 and supports various formats, including PPM, XBM, TIFF, etc."
 HOMEPAGE="http://sf-xpaint.sourceforge.net/"
 SRC_URI="mirror://sourceforge/sf-xpaint/${P}.tar.bz2"
+PATCH_URI="
+	2.9.9-debuginfo.patch
+	2.9.9-freetype25.patch
+"
 
 REQUIRES="ghostscript"
 

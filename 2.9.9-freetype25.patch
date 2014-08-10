@@ -1,0 +1,24 @@
+--- origsrc/xpaint-2.9.9.4/configure.ac	2013-01-26 08:18:18.000000000 -0600
++++ src/xpaint-2.9.9.4/configure.ac	2014-08-10 11:41:32.630263300 -0500
+@@ -238,14 +237,17 @@ _finddata_t fileinfo;
+ 
+ AC_MSG_CHECKING([location of freetype2 headers])
+ AC_PREPROC_IFELSE(
+-  [AC_LANG_PROGRAM([[#include <freetype/config/ftheader.h>]])],
++  [AC_LANG_PROGRAM([[#include <ft2build.h>]])],
+   [AC_MSG_RESULT([already in path])],
+-  [AC_PREPROC_IFELSE(
+-    [AC_LANG_PROGRAM([[#include </usr/include/freetype2/freetype/config/ftheader.h>]])],
++  [save_CPPFLAGS=$CPPFLAGS
++  CPPFLAGS="$CPPFLAGS -I/usr/include/freetype2"
++  AC_PREPROC_IFELSE(
++    [AC_LANG_PROGRAM([[#include <ft2build.h>]])],
+     [AC_MSG_RESULT([/usr/include/freetype2])
+      AC_SUBST([SPECIAL_CFLAGS], ["-I/usr/include/freetype2"])],
+     [AC_MSG_ERROR([cannot find freetype2 headers; try setting CFLAGS.])]
+-  )]
++  )
++  CPPFLAGS=$save_CPPFLAGS]
+ )
+ 
+ AC_OUTPUT([Makefile rw/Makefile])

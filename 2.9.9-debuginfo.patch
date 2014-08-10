@@ -1,0 +1,10 @@
+--- origsrc/xpaint-2.9.9.4/configure.ac	2013-01-26 08:18:18.000000000 -0600
++++ src/xpaint-2.9.9.4/configure.ac	2014-08-10 11:41:32.630263300 -0500
+@@ -28,7 +28,6 @@ AC_TYPE_UINT16_T
+ AC_TYPE_UINT32_T
+ AC_TYPE_UINT64_T
+ 
+-CFLAGS="-I/usr/include -I/usr/include/X11 -I/usr/include/X11/Xaw3dxft"
+ LIBS="$LIBS -lm"
+ echo "VERSION = $VERSION" > .version
+ 
