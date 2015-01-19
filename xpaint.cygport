@@ -1,6 +1,6 @@
 NAME="xpaint"
 VERSION=2.9.9.4
-RELEASE=1
+RELEASE=2
 CATEGORY="Graphics"
 SUMMARY="X paint program"
 DESCRIPTION="Xpaint is a color image editing tool which features most standard
